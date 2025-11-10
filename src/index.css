@@ -1,0 +1,255 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Green Growth Theme (Default) */
+    --background: 0 0% 100%;
+    --foreground: 120 10% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 120 10% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 120 10% 10%;
+
+    --primary: 122 39% 33%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 122 39% 49%;
+    --primary-glow: 122 39% 60%;
+
+    --secondary: 24 20% 43%;
+    --secondary-foreground: 0 0% 100%;
+
+    --accent: 207 90% 54%;
+    --accent-foreground: 0 0% 100%;
+
+    --muted: 120 10% 96%;
+    --muted-foreground: 120 5% 46%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 120 10% 91%;
+    --input: 120 10% 91%;
+    --ring: 122 39% 33%;
+
+    --radius: 0.75rem;
+
+    /* Premium Effects */
+    --gradient-primary: linear-gradient(135deg, hsl(122, 39%, 33%), hsl(122, 39%, 49%));
+    --gradient-accent: linear-gradient(135deg, hsl(207, 90%, 54%), hsl(207, 90%, 64%));
+    --gradient-glow: linear-gradient(180deg, hsl(122, 39%, 49%), hsl(122, 39%, 60%));
+    --shadow-glow: 0 0 40px hsl(122, 39%, 49% / 0.4);
+    --shadow-elegant: 0 10px 30px -10px hsl(122, 39%, 33% / 0.3);
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 122 39% 33%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 120 10% 96%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 120 10% 91%;
+    --sidebar-ring: 122 39% 33%;
+  }
+
+  .dark {
+    --background: 120 10% 5%;
+    --foreground: 0 0% 98%;
+
+    --card: 120 10% 8%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 120 10% 8%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 122 39% 49%;
+    --primary-foreground: 120 10% 10%;
+    --primary-light: 122 39% 60%;
+    --primary-glow: 122 39% 70%;
+
+    --secondary: 24 20% 25%;
+    --secondary-foreground: 0 0% 98%;
+
+    --accent: 207 90% 54%;
+    --accent-foreground: 0 0% 98%;
+
+    --muted: 120 10% 17%;
+    --muted-foreground: 120 5% 65%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 120 10% 17%;
+    --input: 120 10% 17%;
+    --ring: 122 39% 49%;
+
+    --glass-bg: rgba(0, 0, 0, 0.3);
+    --glass-border: rgba(255, 255, 255, 0.1);
+
+    --sidebar-background: 120 10% 8%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 122 39% 49%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 120 10% 15%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 120 10% 15%;
+    --sidebar-ring: 122 39% 49%;
+  }
+
+  /* Earth Tones Theme */
+  [data-theme="earth"] {
+    --primary: 24 34% 37%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 24 34% 50%;
+    --primary-glow: 24 34% 60%;
+
+    --accent: 45 100% 50%;
+    --accent-foreground: 0 0% 0%;
+
+    --secondary: 199 89% 41%;
+    --secondary-foreground: 0 0% 100%;
+  }
+
+  /* Modern Professional Theme */
+  [data-theme="modern"] {
+    --primary: 207 89% 41%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 207 89% 54%;
+    --primary-glow: 207 89% 64%;
+
+    --accent: 291 64% 42%;
+    --accent-foreground: 0 0% 100%;
+
+    --secondary: 122 39% 41%;
+    --secondary-foreground: 0 0% 100%;
+  }
+
+  /* High Contrast Theme */
+  [data-theme="contrast"] {
+    --primary: 211 100% 35%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 211 100% 45%;
+    --primary-glow: 211 100% 55%;
+
+    --accent: 24 100% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --secondary: 122 100% 25%;
+    --secondary-foreground: 0 0% 100%;
+
+    --border: 0 0% 30%;
+    --input: 0 0% 30%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  /* Glass Effect */
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+  }
+
+  .glass-card {
+    @apply glass rounded-2xl shadow-xl;
+  }
+
+  /* Premium Animations */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+
+  .hover-lift {
+    @apply transition-transform duration-300;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px);
+  }
+
+  /* Gradient Text */
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Premium Buttons */
+  .btn-premium {
+    @apply relative overflow-hidden;
+  }
+
+  .btn-premium::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent;
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+  }
+
+  .btn-premium:hover::before {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 20px hsl(122, 39%, 49% / 0.5);
+  }
+  to {
+    box-shadow: 0 0 40px hsl(122, 39%, 49% / 0.8);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
